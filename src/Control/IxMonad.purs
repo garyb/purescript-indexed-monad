@@ -25,3 +25,17 @@ composeiKleisliFlipped ∷ ∀ m a b c x y z. IxMonad m ⇒ (b → m y z c) → 
 composeiKleisliFlipped f g a = f =<<: g a
 
 infixr 1 composeiKleisliFlipped as <=<:
+
+iapplyFirst :: ∀ m x y z a b. (IxMonad m) => m x y a -> m y z b -> m x z a
+iapplyFirst x y = do
+  r <- x
+  _ <- y
+  ipure r
+  where bind = ibind
+
+infixl 4 iapplyFirst as <*:
+
+iapplySecond :: ∀ m x y z a b. (IxMonad m) => m x y a -> m y z b -> m x z b
+iapplySecond x y = x :>>= const y
+
+infixl 4 iapplySecond as :*>
