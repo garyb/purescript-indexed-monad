@@ -15,8 +15,8 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-eff": "^2.0.0",
-    "purescript-aff": "^2.0.2",
-    "purescript-transformers": "^2.2.0"
+    "purescript-eff": "^3.1.0",
+    "purescript-aff": "^3.0.0",
+    "purescript-transformers": "^3.2.0"
   }
 }
