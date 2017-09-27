@@ -16,7 +16,7 @@
   ],
   "dependencies": {
     "purescript-eff": "^3.1.0",
-    "purescript-aff": "^3.0.0",
-    "purescript-transformers": "^3.2.0"
+    "purescript-aff": "^4.0.0",
+    "purescript-transformers": "^3.4.0"
   }
 }
