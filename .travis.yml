@@ -2,10 +2,11 @@ language: node_js
 dist: trusty
 sudo: required
 node_js: stable
+before_install:
+  - wget -q -O - https://github.com/purescript/psc-package/releases/download/v0.4.0/linux64.tar.gz | sudo tar xzf - -C /usr/local/bin --strip-components 1 psc-package/psc-package
 install:
-  - npm install -g bower
   - npm install
-  - bower install
+  - psc-package install
 script:
   - npm run -s build
 after_success:
