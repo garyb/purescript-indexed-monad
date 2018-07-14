@@ -3,17 +3,17 @@ module Control.IxMonad.Eff where
 import Prelude
 
 import Control.IxMonad (class IxMonad)
-import Control.Monad.Eff (Eff)
+import Effect (Effect)
 
 import Data.Newtype (class Newtype)
 
-newtype IxEff eff i o a = IxEff (Eff eff a)
+newtype IxEff i o a = IxEff (Effect a)
 
-derive instance newtypeIxEff ∷ Newtype (IxEff eff i o a) _
+derive instance newtypeIxEff ∷ Newtype (IxEff i o a) _
 
-runIxEff ∷ forall eff i o a. IxEff eff i o a → Eff eff a
+runIxEff ∷ forall i o a. IxEff i o a → Effect a
 runIxEff (IxEff ea) = ea
 
-instance ixMonadIxEff ∷ IxMonad (IxEff eff) where
+instance ixMonadIxEff ∷ IxMonad IxEff where
   ipure = IxEff <<< pure
   ibind (IxEff ma) f = IxEff $ runIxEff <<< f =<< ma
