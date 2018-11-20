@@ -6,7 +6,7 @@ module Control.Apply.Indexed
   , module Data.Functor.Indexed
   ) where
 
-import Prelude (const, id)
+import Prelude (const, identity)
 import Data.Functor.Indexed
 
 class IxFunctor m ⇐ IxApply m where
@@ -18,6 +18,6 @@ iapplyFirst a b = const `imap` a `iapply` b
 infixl 4 iapplyFirst as <*:
 
 iapplySecond ∷ ∀ m a b x y z. IxApply m => m x y a -> m y z b -> m x z b
-iapplySecond a b = const id `imap` a `iapply` b
+iapplySecond a b = const identity `imap` a `iapply` b
 
 infixl 4 iapplySecond as :*>

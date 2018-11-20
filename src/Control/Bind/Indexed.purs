@@ -7,7 +7,7 @@ module Control.Bind.Indexed
   , module Control.Apply.Indexed
   ) where
 
-import Prelude (flip, id)
+import Prelude (flip, identity)
 import Control.Apply.Indexed
 
 class IxApply m ⇐ IxBind m where
@@ -21,7 +21,7 @@ ibindFlipped = flip ibind
 infixr 1 ibindFlipped as =<<:
 
 ijoin ∷ forall m z y x a. IxBind m => m x y (m y z a) -> m x z a
-ijoin m = m :>>= id
+ijoin m = m :>>= identity
 
 composeiKleisli ∷ ∀ m a b c x y z. IxBind m ⇒ (a → m x y b) → (b → m y z c) → a → m x z c
 composeiKleisli f g a = f a :>>= g
