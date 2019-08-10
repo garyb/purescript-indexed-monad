@@ -20,11 +20,10 @@
 -- | ```
 module Control.Monad.Indexed.Qualified where
 
-import Data.Unit (Unit)
 import Data.Functor.Indexed (class IxFunctor, imap)
 import Control.Apply.Indexed (class IxApply, iapply)
 import Control.Applicative.Indexed (class IxApplicative, ipure)
-import Control.Bind.Indexed (ibind)
+import Control.Bind.Indexed (class IxBind, ibind, class IxDiscard, idiscard)
 import Control.Monad.Indexed (class IxMonad)
 
 map ∷ ∀ f a b x y. IxFunctor f => (a → b) → f x y a → f x y b
@@ -39,5 +38,5 @@ pure = ipure
 bind ∷ ∀ m a b x y z. IxMonad m => m x y a → (a → m y z b) → m x z b
 bind = ibind
 
-discard ∷ ∀ m a x y z. IxMonad m => m x y a → (a → m y z Unit) → m x z Unit
-discard = ibind
+discard ∷ ∀ m a b x y z. IxBind m => IxDiscard a => m x y a → (a → m y z b) → m x z b
+discard = idiscard
