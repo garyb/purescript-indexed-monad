@@ -4,10 +4,12 @@ module Control.Bind.Indexed
   , ibindFlipped, (=<<:)
   , composeiKleisli, (:>=>)
   , composeiKleisliFlipped, (<=<:)
+  , class IxDiscard
+  , idiscard
   , module Control.Apply.Indexed
   ) where
 
-import Prelude (flip, identity)
+import Prelude (flip, identity, Unit)
 import Control.Apply.Indexed
 
 class IxApply m ⇐ IxBind m where
@@ -32,3 +34,9 @@ composeiKleisliFlipped ∷ ∀ m a b c x y z. IxBind m ⇒ (b → m y z c) → (
 composeiKleisliFlipped f g a = f =<<: g a
 
 infixr 1 composeiKleisliFlipped as <=<:
+
+class IxDiscard a where
+  idiscard ∷ ∀ f b x y z. IxBind f ⇒ f x y a → (a → f y z b) → f x z b
+
+instance ixDiscardUnit :: IxDiscard Unit where
+  idiscard = ibind
