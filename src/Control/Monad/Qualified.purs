@@ -2,9 +2,9 @@
 -- |
 -- | For example, here's how one would rebind do notation.
 -- | ```purescript
--- | import Control.Monad.Indexed.Qualified as I
+-- | import Control.Monad.Indexed.Qualified as Ix
 -- |
--- | f = I.do -- remaps do notation to use `ibind` and `idiscard`
+-- | f = Ix.do -- remaps do notation to use `ibind` and `idiscard`
 -- |   x <- foo
 -- |   bar
 -- |   I.pure y
@@ -12,9 +12,9 @@
 -- |
 -- | For example, here's how one would rebind ado notation.
 -- | ```purescript
--- | import Control.Monad.Indexed.Qualified as I
+-- | import Control.Monad.Indexed.Qualified as Ix
 -- |
--- | g = I.ado -- remaps do notation to use `iapply` and `imap`
+-- | g = Ix.ado -- remaps do notation to use `iapply` and `imap`
 -- |  x <- foo
 -- |  y <- bar
 -- |  in x + y
