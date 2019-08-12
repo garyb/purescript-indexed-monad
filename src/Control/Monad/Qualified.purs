@@ -1,4 +1,4 @@
--- | Use this module to rebind `do`/`ado` notation via Qualfieid Do/Ado.
+-- | Use this module to rebind `do`/`ado` notation via Qualified Do/Ado.
 -- |
 -- | For example, here's how one would rebind do notation.
 -- | ```purescript
