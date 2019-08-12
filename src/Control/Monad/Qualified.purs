@@ -4,8 +4,9 @@
 -- | ```purescript
 -- | import Control.Monad.Indexed.Qualified as I
 -- |
--- | f = I.do -- remaps do notation to use `ibind`
+-- | f = I.do -- remaps do notation to use `ibind` and `idiscard`
 -- |   x <- foo
+-- |   bar
 -- |   I.pure y
 -- | ```
 -- |
