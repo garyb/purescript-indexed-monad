@@ -25,19 +25,20 @@ import Data.Functor.Indexed (class IxFunctor, imap)
 import Control.Apply.Indexed (class IxApply, iapply)
 import Control.Applicative.Indexed (class IxApplicative, ipure)
 import Control.Bind.Indexed (class IxBind, ibind, class IxDiscard, idiscard)
-import Control.Monad.Indexed (class IxMonad)
+import Control.ValidTransition (class ValidTransition)
 
-map ∷ ∀ f a b x y. IxFunctor f => (a → b) → f x y a → f x y b
+map ∷ ∀ f a b x y. ValidTransition x y ⇒ IxFunctor f ⇒ (a → b) → f x y a → f x y b
 map = imap
 
-apply ∷ ∀ m a b x y z. IxApply m => m x y (a → b) → m y z a → m x z b
+apply ∷ ∀ m a b x y z. ValidTransition x y ⇒ ValidTransition y z ⇒ IxApply m ⇒ m x y (a → b) → m y z a → m x z b
 apply = iapply
 
-pure ∷ ∀ m a x. IxApplicative m => a → m x x a
+pure ∷ ∀ m a x. ValidTransition x x ⇒ IxApplicative m ⇒ a → m x x a
 pure = ipure
 
-bind ∷ ∀ m a b x y z. IxMonad m => m x y a → (a → m y z b) → m x z b
+bind ∷ ∀ m a b x y z. ValidTransition x y ⇒ ValidTransition y z ⇒ IxBind m ⇒ m x y a → (a → m y z b) → m x z b
 bind = ibind
 
-discard ∷ ∀ m a b x y z. IxBind m => IxDiscard a => m x y a → (a → m y z b) → m x z b
+
+discard ∷ ∀ m a b x y z. ValidTransition x y ⇒ ValidTransition y z ⇒ IxBind m ⇒ IxDiscard a ⇒ m x y a → (a → m y z b) → m x z b
 discard = idiscard
