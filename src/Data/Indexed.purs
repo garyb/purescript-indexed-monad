@@ -20,6 +20,12 @@ derive newtype instance ord1Indexed ∷ Ord1 m ⇒ Ord1 (Indexed m i o)
 instance showIndexed ∷ Show (m a) ⇒ Show (Indexed m i o a) where
   show (Indexed ma) = "(Indexed " <> show ma <> ")"
 
+derive newtype instance functorIndexed :: Functor m ⇒ Functor (Indexed m x x)
+derive newtype instance applyIndexed :: Apply m ⇒ Apply (Indexed m x x)
+derive newtype instance applicativeIndexed :: Applicative m ⇒ Applicative (Indexed m x x)
+derive newtype instance bindIndexed :: Bind m ⇒ Bind (Indexed m x x)
+derive newtype instance monadIndexed :: Monad m ⇒ Monad (Indexed m x x)
+
 instance ixFunctorIndexed ∷ Functor m ⇒ IxFunctor (Indexed m) where
   imap f (Indexed ma) = Indexed (map f ma)
 
