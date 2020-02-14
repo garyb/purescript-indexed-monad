@@ -36,7 +36,7 @@ composeiKleisliFlipped f g a = f =<<: g a
 infixr 1 composeiKleisliFlipped as <=<:
 
 class IxDiscard a where
-  idiscard ∷ ∀ f b x y z. IxBind f ⇒ f x y a → (a → f y z b) → f x z b
+  idiscard ∷ ∀ k f b (x :: k) (y :: k) (z :: k). IxBind f ⇒ f x y a → (a → f y z b) → f x z b
 
 instance ixDiscardUnit :: IxDiscard Unit where
   idiscard = ibind
