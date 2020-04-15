@@ -3,11 +3,11 @@ module Control.Apply.Indexed
   , iapply
   , iapplyFirst, (<*:)
   , iapplySecond, (:*>)
-  , module Data.Functor.Indexed
+  , module Control.Functor.Indexed
   ) where
 
 import Prelude (const, identity)
-import Data.Functor.Indexed
+import Control.Functor.Indexed
 
 class IxFunctor m ⇐ IxApply m where
   iapply ∷ ∀ a b x y z. m x y (a → b) → m y z a → m x z b

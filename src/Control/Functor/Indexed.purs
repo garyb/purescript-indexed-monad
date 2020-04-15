@@ -1,4 +1,4 @@
-module Data.Functor.Indexed where
+module Control.Functor.Indexed where
 
 import Prelude
 

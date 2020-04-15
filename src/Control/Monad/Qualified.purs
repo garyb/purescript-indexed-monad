@@ -21,7 +21,7 @@
 -- | ```
 module Control.Monad.Indexed.Qualified where
 
-import Data.Functor.Indexed (class IxFunctor, imap)
+import Control.Functor.Indexed (class IxFunctor, imap)
 import Control.Apply.Indexed (class IxApply, iapply)
 import Control.Applicative.Indexed (class IxApplicative, ipure)
 import Control.Bind.Indexed (class IxBind, ibind, class IxDiscard, idiscard)

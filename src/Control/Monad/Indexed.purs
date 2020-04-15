@@ -6,7 +6,7 @@ module Control.Monad.Indexed
   , module Control.Applicative.Indexed
   , module Control.Apply.Indexed
   , module Control.Bind.Indexed
-  , module Data.Functor.Indexed
+  , module Control.Functor.Indexed
   ) where
 
 import Prelude
@@ -14,7 +14,7 @@ import Prelude
 import Control.Applicative.Indexed (class IxApplicative, ipure, iwhen, iunless)
 import Control.Apply.Indexed (class IxApply, iapply, iapplyFirst, iapplySecond, (:*>), (<*:))
 import Control.Bind.Indexed (class IxBind, ibind, (:>>=), ibindFlipped, (=<<:), composeiKleisli, (:>=>), composeiKleisliFlipped, (<=<:))
-import Data.Functor.Indexed (class IxFunctor, imap, ivoid, ivoidLeft, ivoidRight, (:$>), (<$:))
+import Control.Functor.Indexed (class IxFunctor, imap, ivoid, ivoidLeft, ivoidRight, (:$>), (<$:))
 
 class (IxApplicative m, IxBind m) ⇐ IxMonad m
 
