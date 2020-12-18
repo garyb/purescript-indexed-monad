@@ -12,6 +12,7 @@ module Control.Bind.Indexed
 import Prelude (flip, identity, Unit)
 import Control.Apply.Indexed
 
+class IxBind :: forall k. (k -> k -> Type -> Type) -> Constraint
 class IxApply m ⇐ IxBind m where
   ibind ∷ ∀ a b x y z. m x y a → (a → m y z b) → m x z b
 
@@ -36,7 +37,7 @@ composeiKleisliFlipped f g a = f =<<: g a
 infixr 1 composeiKleisliFlipped as <=<:
 
 class IxDiscard a where
-  idiscard ∷ ∀ f b x y z. IxBind f ⇒ f x y a → (a → f y z b) → f x z b
+  idiscard ∷ ∀ k f b (x :: k) (y :: k) (z :: k). IxBind f ⇒ f x y a → (a → f y z b) → f x z b
 
 instance ixDiscardUnit :: IxDiscard Unit where
   idiscard = ibind

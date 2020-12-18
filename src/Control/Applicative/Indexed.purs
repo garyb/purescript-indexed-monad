@@ -9,6 +9,7 @@ module Control.Applicative.Indexed
 import Prelude (Unit, unit)
 import Control.Apply.Indexed
 
+class IxApplicative :: forall k. (k -> k -> Type -> Type) -> Constraint
 class IxApply m ⇐ IxApplicative m where
   ipure ∷ ∀ a x. a → m x x a
 

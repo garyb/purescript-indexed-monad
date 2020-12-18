@@ -9,6 +9,7 @@ module Control.Apply.Indexed
 import Prelude (const, identity)
 import Data.Functor.Indexed
 
+class IxApply :: forall k. (k -> k -> Type -> Type) -> Constraint
 class IxFunctor m ⇐ IxApply m where
   iapply ∷ ∀ a b x y z. m x y (a → b) → m y z a → m x z b
 
