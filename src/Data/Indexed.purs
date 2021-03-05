@@ -7,7 +7,7 @@ import Data.Newtype (class Newtype)
 import Data.Ord (class Ord1)
 import Control.Monad.Indexed (class IxApplicative, class IxApply, class IxBind, class IxFunctor, class IxMonad)
 
-newtype Indexed :: forall k. (Type -> Type) -> k -> k -> Type -> Type
+newtype Indexed ∷ ∀ ix. (Type → Type) → ix → ix → Type → Type
 newtype Indexed m x y a = Indexed (m a)
 
 derive instance newtypeIndexed ∷ Newtype (Indexed m i o a) _

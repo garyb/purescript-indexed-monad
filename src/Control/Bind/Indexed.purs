@@ -12,7 +12,7 @@ module Control.Bind.Indexed
 import Prelude (flip, identity, Unit)
 import Control.Apply.Indexed
 
-class IxBind :: forall k. (k -> k -> Type -> Type) -> Constraint
+class IxBind ∷ ∀ ix. (ix → ix → Type → Type) → Constraint
 class IxApply m ⇐ IxBind m where
   ibind ∷ ∀ a b x y z. m x y a → (a → m y z b) → m x z b
 

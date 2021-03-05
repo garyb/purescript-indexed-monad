@@ -2,7 +2,7 @@ module Data.Functor.Indexed where
 
 import Prelude
 
-class IxFunctor :: forall k. (k -> k -> Type -> Type) -> Constraint
+class IxFunctor ∷ ∀ ix. (ix → ix → Type → Type) → Constraint
 class IxFunctor f where
   imap ∷ ∀ a b x y. (a → b) → f x y a → f x y b
 
