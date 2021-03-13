@@ -1,7 +1,7 @@
 # purescript-indexed-monad
 
 [![Latest release](http://img.shields.io/github/release/garyb/purescript-indexed-monad.svg)](https://github.com/garyb/purescript-indexed-monad/releases)
-[![Build status](https://travis-ci.org/garyb/purescript-indexed-monad.svg?branch=master)](https://travis-ci.org/garyb/purescript-indexed-monad)
+![Build Status](https://github.com/garyb/purescript-indexed-monad/actions/workflows/ci.yml/badge.svg)
 
 Indexed monads in PureScript.
 
