@@ -6,6 +6,7 @@ module Control.Bind.Indexed
   , composeiKleisliFlipped, (<=<:)
   , class IxDiscard
   , idiscard
+  , ijoin
   , module Control.Apply.Indexed
   ) where
 
