@@ -15,7 +15,7 @@
     "package.json"
   ],
   "dependencies": {
-    "purescript-control": "^5.0.0",
-    "purescript-newtype": "^4.0.0"
+    "purescript-control": "^6.0.0",
+    "purescript-newtype": "^5.0.0"
   }
 }

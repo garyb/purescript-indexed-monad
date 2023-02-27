@@ -14,11 +14,11 @@ jobs:
 
       - uses: purescript-contrib/setup-purescript@main
         with:
-          purescript: "0.14.0"
+          purescript: "0.15.7"
 
       - uses: actions/setup-node@v1
         with:
-          node-version: "10"
+          node-version: "18"
 
       - name: Install dependencies
         run: |
