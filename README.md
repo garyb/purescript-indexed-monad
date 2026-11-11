@@ -8,7 +8,7 @@ Indexed monads in PureScript.
 ## Installation
 
 ```
-bower install purescript-indexed-monad
+spago install indexed-monad
 ```
 
 ## Documentation
